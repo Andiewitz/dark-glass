@@ -1,4 +1,4 @@
-export type SectionType = "hero" | "pricing";
+export type SectionType = "hero" | "projects" | "pricing";
 
 export interface NavItem {
   label: string;
@@ -34,8 +34,20 @@ export interface PricingData {
   tiers: PricingTier[];
 }
 
+export interface ProjectPhoto {
+  id: string | number;
+  image: string;
+}
+
+export interface ProjectsData {
+  folderName?: string;
+  dragHintText?: string;
+  photos?: ProjectPhoto[];
+}
+
 export type SectionDataMap = {
   hero: HeroData;
+  projects: ProjectsData;
   pricing: PricingData;
 };
 
