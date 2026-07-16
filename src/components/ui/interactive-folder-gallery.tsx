@@ -23,7 +23,7 @@ export interface InteractiveFolderGalleryProps {
   className?: string;
 }
 
-const SPACING = 76;
+const SPACING = 70;
 
 export function InteractiveFolderGallery({
   photos = defaultPhotos,
@@ -60,6 +60,7 @@ export function InteractiveFolderGallery({
               const openX = offset * SPACING;
               const openRotate = 0;
               const openScale = 1;
+              const openZ = 50 + (Math.round((photos.length - 1) / 2) - Math.abs(offset));
 
               return (
                 <motion.div
@@ -72,7 +73,7 @@ export function InteractiveFolderGallery({
                       setHoverFolder(false);
                     }
                   }}
-                  className={`absolute bottom-0 w-36 h-48 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-hidden border border-white/20 origin-bottom ${isFolderOpen ? "cursor-grab active:cursor-grabbing pointer-events-auto" : "pointer-events-none"}`}
+                  className={`absolute bottom-0 w-52 h-36 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-hidden border border-white/20 origin-bottom ${isFolderOpen ? "cursor-grab active:cursor-grabbing pointer-events-auto" : "pointer-events-none"}`}
                   animate={!isFolderOpen ? {
                     y: stackY,
                     x: stackX,
@@ -84,15 +85,20 @@ export function InteractiveFolderGallery({
                     x: openX,
                     rotate: openRotate,
                     scale: openScale,
-                    zIndex: 50,
+                    zIndex: openZ,
                   }}
                   whileHover={isFolderOpen ? { scale: openScale + 0.06, y: -10, zIndex: 100 } : {}}
                   whileDrag={isFolderOpen ? { scale: openScale + 0.1, rotate: 4, zIndex: 150 } : {}}
                   transition={{ type: "spring", stiffness: 350, damping: 30 }}
                 >
-                  <img src={photo.image} alt={photo.title || "Gallery item"} className="w-full h-full object-cover pointer-events-none" />
+                  <img src={photo.image} alt={photo.title || "Gallery item"} className="w-full h-full object-cover object-top pointer-events-none" />
+                  <div className="absolute inset-x-0 top-0 flex items-center gap-1 px-2 h-4 bg-gradient-to-b from-black/70 to-transparent pointer-events-none">
+                    <span className="h-1.5 w-1.5 rounded-full bg-white/40" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-white/40" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-white/40" />
+                  </div>
                   <div
-                    className={`absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-2 py-2 transition-opacity duration-300 pointer-events-none ${isFolderOpen ? "opacity-100" : "opacity-0"}`}
+                    className={`absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-2 py-1.5 transition-opacity duration-300 pointer-events-none ${isFolderOpen ? "opacity-100" : "opacity-0"}`}
                   >
                     <span className="block text-center text-[11px] font-medium tracking-wide text-white/90">
                       {photo.title}
