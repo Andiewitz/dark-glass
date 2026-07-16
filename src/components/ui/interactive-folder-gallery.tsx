@@ -51,9 +51,9 @@ export function InteractiveFolderGallery({
             {photos.map((photo, i) => {
               const offset = i - (photos.length - 1) / 2;
 
-              const stackY = hoverFolder ? offset * -10 - 40 : offset * -5;
-              const stackX = hoverFolder ? offset * 26 : offset * 2;
-              const stackRotate = hoverFolder ? offset * 7 : offset * 2;
+              const stackY = hoverFolder ? offset * -14 - 44 : offset * -9;
+              const stackX = hoverFolder ? offset * 32 : offset * 11;
+              const stackRotate = hoverFolder ? offset * 9 : offset * 3;
               const stackScale = 1 - Math.abs(offset) * 0.015;
 
               const openY = 0;
@@ -73,7 +73,7 @@ export function InteractiveFolderGallery({
                       setHoverFolder(false);
                     }
                   }}
-                  className={`absolute bottom-0 w-56 h-40 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-hidden border border-white/20 origin-bottom ${isFolderOpen ? "cursor-grab active:cursor-grabbing pointer-events-auto" : "pointer-events-none"}`}
+                  className={`absolute bottom-0 w-60 h-44 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-hidden border border-white/20 origin-bottom ${isFolderOpen ? "cursor-grab active:cursor-grabbing pointer-events-auto" : "pointer-events-none"}`}
                   animate={!isFolderOpen ? {
                     y: stackY,
                     x: stackX,
