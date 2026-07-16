@@ -13,6 +13,7 @@ export interface CtaLink {
 export interface ProjectPhoto {
   id: string | number;
   image: string;
+  title?: string;
 }
 
 export interface HeroGallery {

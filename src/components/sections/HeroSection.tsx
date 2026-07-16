@@ -12,7 +12,7 @@ export function HeroSection({ id, data }: SectionComponentProps<"hero">) {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] h-48 bg-gradient-to-b from-transparent to-background" />
 
       <Container className="relative z-10 flex h-full items-center">
-        <div className="grid w-full items-center gap-10 md:grid-cols-2">
+        <div className="grid w-full items-center gap-10 lg:grid-cols-2">
           <div className="flex flex-col items-start justify-center">
             {data.badge ? (
               <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1 font-body text-[11px] uppercase tracking-[0.04em] text-white/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] backdrop-blur-md">
@@ -58,7 +58,7 @@ export function HeroSection({ id, data }: SectionComponentProps<"hero">) {
           </div>
 
           {data.gallery ? (
-            <div id="projects" className="flex justify-center md:scale-90 lg:scale-100">
+            <div id="projects" className="flex justify-center">
               <InteractiveFolderGallery
                 folderName={data.gallery.folderName}
                 dragHintText={data.gallery.dragHintText}
