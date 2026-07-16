@@ -65,3 +65,18 @@ body {
   background-color: var(--color-background);
   -webkit-font-smoothing: antialiased;
 }
+
+@keyframes navItemIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-item-in {
+  animation: navItemIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}

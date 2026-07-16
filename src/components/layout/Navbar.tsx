@@ -134,15 +134,23 @@ function DesktopMenu({ items }: { items: NavItem[] }) {
           <NavigationMenuContent>
             <div className="grid w-full md:w-4xl md:grid-cols-[1fr_.30fr]">
               <ul className="grid grow gap-4 p-4 md:grid-cols-3 md:border-r md:border-white/10">
-                {workLinks.slice(0, 3).map((link) => (
-                  <li key={link.href + link.title}>
+                {workLinks.slice(0, 3).map((link, i) => (
+                  <li
+                    key={link.href + link.title}
+                    className="nav-item-in"
+                    style={{ animationDelay: `${i * 45}ms` }}
+                  >
                     <NavGridCard link={link} />
                   </li>
                 ))}
               </ul>
               <ul className="space-y-1 p-4">
-                {workLinks.slice(3).map((link) => (
-                  <li key={link.href + link.title}>
+                {workLinks.slice(3).map((link, i) => (
+                  <li
+                    key={link.href + link.title}
+                    className="nav-item-in"
+                    style={{ animationDelay: `${(i + 3) * 45}ms` }}
+                  >
                     <NavSmallItem item={link} href={link.href} className="gap-x-1" />
                   </li>
                 ))}
@@ -156,22 +164,34 @@ function DesktopMenu({ items }: { items: NavItem[] }) {
           <NavigationMenuContent>
             <div className="grid w-full md:w-3xl md:grid-cols-[1fr_.40fr]">
               <ul className="grid grow grid-cols-2 gap-4 p-4 md:border-r md:border-white/10">
-                {aboutLinks.slice(0, 2).map((link) => (
-                  <li key={link.href + link.title}>
+                {aboutLinks.slice(0, 2).map((link, i) => (
+                  <li
+                    key={link.href + link.title}
+                    className="nav-item-in"
+                    style={{ animationDelay: `${i * 45}ms` }}
+                  >
                     <NavGridCard link={link} className="min-h-36" />
                   </li>
                 ))}
                 <div className="col-span-2 grid grid-cols-2 gap-x-4">
-                  {aboutLinks.slice(2, 4).map((link) => (
-                    <li key={link.href + link.title}>
+                  {aboutLinks.slice(2, 4).map((link, i) => (
+                    <li
+                      key={link.href + link.title}
+                      className="nav-item-in"
+                      style={{ animationDelay: `${(i + 2) * 45}ms` }}
+                    >
                       <NavLargeItem href={link.href} link={link} />
                     </li>
                   ))}
                 </div>
               </ul>
               <ul className="space-y-2 p-4">
-                {aboutLinks.slice(4, 8).map((link) => (
-                  <li key={link.href + link.title}>
+                {aboutLinks.slice(4, 8).map((link, i) => (
+                  <li
+                    key={link.href + link.title}
+                    className="nav-item-in"
+                    style={{ animationDelay: `${(i + 4) * 45}ms` }}
+                  >
                     <NavLargeItem href={link.href} link={link} />
                   </li>
                 ))}
