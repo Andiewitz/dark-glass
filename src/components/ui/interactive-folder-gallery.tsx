@@ -60,7 +60,7 @@ export function InteractiveFolderGallery({
               const openX = offset * SPACING;
               const openRotate = 0;
               const openScale = 1;
-              const openZ = 50 + (Math.round((photos.length - 1) / 2) - Math.abs(offset));
+              const openZ = 50 + i;
 
               return (
                 <motion.div
@@ -87,7 +87,7 @@ export function InteractiveFolderGallery({
                     scale: openScale,
                     zIndex: openZ,
                   }}
-                  whileHover={isFolderOpen ? { scale: openScale + 0.06, y: -10, zIndex: 100 } : {}}
+                  whileHover={isFolderOpen ? { scale: openScale + 0.06, y: -12, x: openX + (offset > 0 ? 16 : offset < 0 ? -16 : 0), zIndex: 100 } : {}}
                   whileDrag={isFolderOpen ? { scale: openScale + 0.1, rotate: 4, zIndex: 150 } : {}}
                   transition={{ type: "spring", stiffness: 350, damping: 30 }}
                 >
