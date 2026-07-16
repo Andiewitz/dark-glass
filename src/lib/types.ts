@@ -34,15 +34,18 @@ export interface PricingData {
   tiers: PricingTier[];
 }
 
-export interface ProjectPhoto {
+export interface Project {
   id: string | number;
+  title: string;
+  description: string;
   image: string;
+  href?: string;
 }
 
 export interface ProjectsData {
-  folderName?: string;
-  dragHintText?: string;
-  photos?: ProjectPhoto[];
+  title?: string;
+  description?: string;
+  projects?: Project[];
 }
 
 export type SectionDataMap = {
