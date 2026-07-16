@@ -4,7 +4,7 @@ import type { SectionComponentProps } from "@/lib/types";
 
 export function ProjectsSection({ id, data }: SectionComponentProps<"projects">) {
   return (
-    <section id={id} className="scroll-mt-20 py-20 sm:py-28">
+    <section id={id} className="scroll-mt-20 py-12 sm:py-16">
       <Container className="flex flex-col items-center">
         <div className="mb-4 text-center">
           <h2 className="font-heading text-3xl font-semibold text-white sm:text-4xl">

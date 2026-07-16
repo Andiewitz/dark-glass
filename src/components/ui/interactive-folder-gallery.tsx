@@ -32,7 +32,7 @@ export function InteractiveFolderGallery({
   const [hoverFolder, setHoverFolder] = useState(false);
 
   return (
-    <div className={`w-full py-32 relative ${className || ""}`}>
+    <div className={`w-full py-8 relative ${className || ""}`}>
       <div className="relative w-full min-h-[500px] flex flex-col items-center justify-center">
         <div className="relative w-[400px] h-[500px] flex justify-center pointer-events-none z-0">
           <motion.div
