@@ -1,21 +1,14 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, DM_Sans, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site.config";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
-const pjs = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-pjs",
-  display: "swap",
-});
-
-const dms = DM_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-dms",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -38,7 +31,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${pjs.variable} ${dms.variable} ${jbm.variable} h-full antialiased`}
+      className={`${inter.variable} ${jbm.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background font-body text-primary">
         <Navbar brand={siteConfig.name} items={siteConfig.nav} cta={siteConfig.cta} />

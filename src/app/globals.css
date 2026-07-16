@@ -1,27 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  /* surfaces */
-  --color-background: #0e0e0e;
-  --color-surface: #141414;
-  --color-elevated: #1a1a1a;
-  --color-border: #232323;
-  --color-border-soft: #252525;
-  --color-border-strong: #2e2e2e;
+  /* surfaces — glassmorphism palette */
+  --color-background: #050505;
+  --color-surface: rgba(255, 255, 255, 0.03);
+  --color-elevated: rgba(255, 255, 255, 0.06);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-soft: rgba(255, 255, 255, 0.05);
+  --color-border-strong: rgba(255, 255, 255, 0.15);
 
   /* typography */
-  --color-primary: #f2f2f2;
-  --color-secondary: #666666;
-  --color-muted: #444444;
+  --color-primary: rgba(255, 255, 255, 0.9);
+  --color-secondary: rgba(255, 255, 255, 0.5);
+  --color-muted: rgba(255, 255, 255, 0.35);
 
-  /* accent — slate blue */
-  --color-accent: #7e9ead;
-  --color-accent-tint: rgba(126, 158, 173, 0.1);
-  --color-accent-ring: rgba(126, 158, 173, 0.3);
+  /* accent — white glass */
+  --color-accent: #ffffff;
+  --color-accent-tint: rgba(255, 255, 255, 0.08);
+  --color-accent-ring: rgba(255, 255, 255, 0.2);
 
   /* fonts */
-  --font-heading: var(--font-pjs);
-  --font-body: var(--font-dms);
+  --font-heading: var(--font-inter);
+  --font-body: var(--font-inter);
   --font-mono: var(--font-jbm);
 
   /* radius */

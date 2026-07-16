@@ -6,9 +6,9 @@ type FooterProps = {
 
 export function Footer({ text }: FooterProps) {
   return (
-    <footer className="border-t-[0.5px] border-border py-10">
+    <footer className="border-t border-white/10 py-10">
       <Container>
-        <p className="text-sm text-muted">{text}</p>
+        <p className="text-sm text-white/40">{text}</p>
       </Container>
     </footer>
   );

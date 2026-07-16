@@ -1,4 +1,4 @@
-export type SectionType = "hero";
+export type SectionType = "hero" | "pricing";
 
 export interface NavItem {
   label: string;
@@ -19,8 +19,24 @@ export interface HeroData {
   ghostCta?: CtaLink;
 }
 
+export interface PricingTier {
+  name: string;
+  priceMonthly: string;
+  priceAnnual: string;
+  description: string;
+  isPopular?: boolean;
+  features: string[];
+}
+
+export interface PricingData {
+  title?: string;
+  description?: string;
+  tiers: PricingTier[];
+}
+
 export type SectionDataMap = {
   hero: HeroData;
+  pricing: PricingData;
 };
 
 export type SectionConfig = {

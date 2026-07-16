@@ -13,11 +13,11 @@ export function Button({
   return (
     <a
       className={cn(
-        "inline-flex h-9 items-center justify-center rounded-md px-[18px] text-[13px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-ring",
+        "inline-flex h-9 items-center justify-center rounded-[12px] px-[18px] text-[13px] font-semibold shadow-[inset_0_1px_1px_rgba(255,255,255,0.25)] transition-all duration-300 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20",
         variant === "primary" &&
-          "border-[0.5px] border-accent bg-transparent font-heading text-accent hover:bg-accent-tint",
+          "bg-white font-heading text-black hover:bg-white/90",
         variant === "ghost" &&
-          "border-[0.5px] border-border bg-transparent font-heading text-muted hover:bg-elevated",
+          "border border-white/10 bg-white/10 font-heading text-white/80 hover:bg-white/20",
         className,
       )}
       {...props}
