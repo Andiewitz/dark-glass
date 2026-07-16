@@ -14,6 +14,7 @@ export interface ProjectPhoto {
   id: string | number;
   image: string;
   title?: string;
+  href?: string;
 }
 
 export interface HeroGallery {
