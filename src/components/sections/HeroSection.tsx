@@ -58,7 +58,7 @@ export function HeroSection({ id, data }: SectionComponentProps<"hero">) {
           </div>
 
           {data.gallery ? (
-            <div id="projects" className="flex justify-center">
+            <div id="projects" className="flex justify-center md:scale-90 lg:scale-100">
               <InteractiveFolderGallery
                 folderName={data.gallery.folderName}
                 dragHintText={data.gallery.dragHintText}
