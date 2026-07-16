@@ -1,4 +1,4 @@
-export type SectionType = "hero" | "projects" | "pricing";
+export type SectionType = "hero" | "pricing";
 
 export interface NavItem {
   label: string;
@@ -10,6 +10,17 @@ export interface CtaLink {
   href: string;
 }
 
+export interface ProjectPhoto {
+  id: string | number;
+  image: string;
+}
+
+export interface HeroGallery {
+  folderName?: string;
+  dragHintText?: string;
+  photos?: ProjectPhoto[];
+}
+
 export interface HeroData {
   badge?: string;
   name: string;
@@ -17,6 +28,7 @@ export interface HeroData {
   techTags?: string[];
   primaryCta?: CtaLink;
   ghostCta?: CtaLink;
+  gallery?: HeroGallery;
 }
 
 export interface PricingTier {
@@ -34,20 +46,8 @@ export interface PricingData {
   tiers: PricingTier[];
 }
 
-export interface ProjectPhoto {
-  id: string | number;
-  image: string;
-}
-
-export interface ProjectsData {
-  folderName?: string;
-  dragHintText?: string;
-  photos?: ProjectPhoto[];
-}
-
 export type SectionDataMap = {
   hero: HeroData;
-  projects: ProjectsData;
   pricing: PricingData;
 };
 

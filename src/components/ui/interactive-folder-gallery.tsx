@@ -33,8 +33,8 @@ export function InteractiveFolderGallery({
 
   return (
     <div className={`w-full py-8 relative ${className || ""}`}>
-      <div className="relative w-full min-h-[500px] flex flex-col items-center justify-center">
-        <div className="relative w-[400px] h-[500px] flex justify-center pointer-events-none z-0">
+      <div className="relative w-full min-h-[460px] flex flex-col items-center justify-center">
+        <div className="relative w-[360px] h-[460px] flex justify-center pointer-events-none z-0">
           <motion.div
             className="absolute bottom-6 w-80 h-56 drop-shadow-2xl"
             animate={{ opacity: isFolderOpen ? 0 : 1, scale: isFolderOpen ? 0.9 : 1 }}
@@ -49,12 +49,12 @@ export function InteractiveFolderGallery({
               const offset = i - 2;
 
               const stackY = hoverFolder ? offset * -10 - 40 : offset * -5;
-              const stackX = hoverFolder ? offset * 30 : offset * 3;
-              const stackRotate = hoverFolder ? offset * 8 : offset * 3;
+              const stackX = hoverFolder ? offset * 26 : offset * 2;
+              const stackRotate = hoverFolder ? offset * 7 : offset * 2;
               const stackScale = 1 - Math.abs(offset) * 0.03;
 
-              const openY = -130;
-              const openX = offset * 130;
+              const openY = -110;
+              const openX = offset * 92;
               const openRotate = 0;
               const openScale = 1.05;
 
@@ -69,7 +69,7 @@ export function InteractiveFolderGallery({
                       setHoverFolder(false);
                     }
                   }}
-                  className={`absolute bottom-0 w-56 h-72 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-hidden border border-white/20 origin-bottom ${isFolderOpen ? "cursor-grab active:cursor-grabbing pointer-events-auto" : "pointer-events-none"}`}
+                  className={`absolute bottom-0 w-48 h-64 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-hidden border border-white/20 origin-bottom ${isFolderOpen ? "cursor-grab active:cursor-grabbing pointer-events-auto" : "pointer-events-none"}`}
                   animate={!isFolderOpen ? {
                     y: stackY,
                     x: stackX,
