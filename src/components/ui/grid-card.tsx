@@ -10,7 +10,7 @@ export function GridCard({
   return (
     <div
       className={cn(
-        "group bg-white/[0.03] relative isolate z-0 flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-white/10 px-5 py-4 backdrop-blur-xl transition-colors duration-150 shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]",
+        "group bg-white/[0.06] relative isolate z-0 flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-white/15 px-5 py-4 backdrop-blur-xl transition-colors duration-150 shadow-[inset_0_1px_1px_rgba(255,255,255,0.12)]",
         className,
       )}
       {...props}
