@@ -8,6 +8,7 @@ export function HeroSection({ id, data }: SectionComponentProps<"hero">) {
     <section id={id} className="relative h-screen w-full scroll-mt-0 overflow-hidden">
       <AsciiArt className="absolute inset-0 h-full w-full" />
       <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/50 to-background" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] h-48 bg-gradient-to-b from-transparent to-background" />
 
       <Container className="relative z-10 flex h-full flex-col items-start justify-center">
         {data.badge ? (
