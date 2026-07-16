@@ -114,7 +114,7 @@ function NavigationMenuViewport({
       <NavigationMenuPrimitive.Viewport
         data-slot="navigation-menu-viewport"
         className={cn(
-          "origin-top-center bg-[#0b0b0b]/85 text-white relative mt-2 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-2xl border border-white/15 shadow-[0_32px_64px_-12px_rgba(0,0,0,0.7)] backdrop-blur-2xl md:w-[var(--radix-navigation-menu-viewport-width)]",
+          "origin-top-center bg-[#0c0c0c] text-white relative mt-2 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-2xl border border-white/15 shadow-[0_32px_64px_-12px_rgba(0,0,0,0.7)] backdrop-blur-2xl md:w-[var(--radix-navigation-menu-viewport-width)]",
           className,
         )}
         {...props}
