@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import { AsciiArt } from "@/components/ui/ascii-art";
 import { Container } from "@/components/layout/Container";
 import type { SectionComponentProps } from "@/lib/types";
@@ -41,13 +41,13 @@ export function HeroSection({ id, data }: SectionComponentProps<"hero">) {
         {(data.primaryCta || data.ghostCta) && (
           <div className="mt-10 flex flex-wrap items-center gap-3">
             {data.primaryCta ? (
-              <Button href={data.primaryCta.href} variant="primary">
-                {data.primaryCta.label}
+              <Button asChild variant="default">
+                <a href={data.primaryCta.href}>{data.primaryCta.label}</a>
               </Button>
             ) : null}
             {data.ghostCta ? (
-              <Button href={data.ghostCta.href} variant="ghost">
-                {data.ghostCta.label}
+              <Button asChild variant="ghost">
+                <a href={data.ghostCta.href}>{data.ghostCta.label}</a>
               </Button>
             ) : null}
           </div>
