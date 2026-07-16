@@ -38,10 +38,15 @@ export function GridCard({
   );
 }
 
-function getRandomPattern(length?: number): [x: number, y: number][] {
-  length = length ?? 5;
+function getRandomPattern(length = 5): [x: number, y: number][] {
+  // Deterministic pseudo-random so SSR and client render identically (no hydration mismatch).
+  let seed = 1337;
+  const rand = () => {
+    seed = (seed * 1103515245 + 12345) & 0x7fffffff;
+    return seed / 0x7fffffff;
+  };
   return Array.from({ length }, () => [
-    Math.floor(Math.random() * 4) + 7,
-    Math.floor(Math.random() * 6) + 1,
+    Math.floor(rand() * 4) + 7,
+    Math.floor(rand() * 6) + 1,
   ]);
 }
