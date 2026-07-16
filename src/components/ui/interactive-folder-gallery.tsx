@@ -5,15 +5,14 @@ import { motion } from "motion/react";
 export interface GalleryPhoto {
   id: string | number;
   image: string;
-  title?: string;
 }
 
 const defaultPhotos: GalleryPhoto[] = [
-  { id: 1, image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop", title: "Aurora UI" },
-  { id: 2, image: "https://images.unsplash.com/photo-1604871000636-074fa5117945?q=80&w=800&auto=format&fit=crop", title: "Neon Dashboard" },
-  { id: 3, image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=800&auto=format&fit=crop", title: "Studio Site" },
-  { id: 4, image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?q=80&w=800&auto=format&fit=crop", title: "Commerce App" },
-  { id: 5, image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?q=80&w=800&auto=format&fit=crop", title: "Motion Lab" },
+  { id: 1, image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop" },
+  { id: 2, image: "https://images.unsplash.com/photo-1604871000636-074fa5117945?q=80&w=800&auto=format&fit=crop" },
+  { id: 3, image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=800&auto=format&fit=crop" },
+  { id: 4, image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?q=80&w=800&auto=format&fit=crop" },
+  { id: 5, image: "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?q=80&w=800&auto=format&fit=crop" },
 ];
 
 export interface InteractiveFolderGalleryProps {
@@ -22,8 +21,6 @@ export interface InteractiveFolderGalleryProps {
   dragHintText?: string;
   className?: string;
 }
-
-const SPACING = 70;
 
 export function InteractiveFolderGallery({
   photos = defaultPhotos,
@@ -35,9 +32,9 @@ export function InteractiveFolderGallery({
   const [hoverFolder, setHoverFolder] = useState(false);
 
   return (
-    <div className={`w-full py-8 relative ${className || ""}`}>
-      <div className="relative w-full min-h-[460px] flex flex-col items-center justify-center">
-        <div className="relative w-[460px] h-[460px] flex justify-center pointer-events-none z-0">
+    <div className={`w-full py-4 relative ${className || ""}`}>
+      <div className="relative w-full min-h-[440px] flex flex-col items-center justify-center">
+        <div className="relative w-[400px] h-[500px] flex justify-center pointer-events-none z-0">
           <motion.div
             className="absolute bottom-6 w-80 h-56 drop-shadow-2xl"
             animate={{ opacity: isFolderOpen ? 0 : 1, scale: isFolderOpen ? 0.9 : 1 }}
@@ -47,20 +44,19 @@ export function InteractiveFolderGallery({
             <div className="absolute top-10 left-2 right-2 bottom-2 bg-black rounded-lg shadow-inner pointer-events-none" />
           </motion.div>
 
-          <div className="absolute bottom-12 z-10 flex justify-center">
+          <div className="absolute bottom-10 z-10 flex justify-center">
             {photos.map((photo, i) => {
-              const offset = i - (photos.length - 1) / 2;
+              const offset = i - 2;
 
-              const stackY = hoverFolder ? offset * -14 - 44 : offset * -9;
-              const stackX = hoverFolder ? offset * 32 : offset * 11;
-              const stackRotate = hoverFolder ? offset * 9 : offset * 3;
-              const stackScale = 1 - Math.abs(offset) * 0.015;
+              const stackY = hoverFolder ? offset * -10 - 40 : offset * -5;
+              const stackX = hoverFolder ? offset * 30 : offset * 3;
+              const stackRotate = hoverFolder ? offset * 8 : offset * 3;
+              const stackScale = 1 - Math.abs(offset) * 0.03;
 
-              const openY = 0;
-              const openX = offset * SPACING;
+              const openY = -130;
+              const openX = offset * 130;
               const openRotate = 0;
-              const openScale = 1;
-              const openZ = 50 + i;
+              const openScale = 1.05;
 
               return (
                 <motion.div
@@ -73,7 +69,7 @@ export function InteractiveFolderGallery({
                       setHoverFolder(false);
                     }
                   }}
-                  className={`absolute bottom-0 w-60 h-44 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-hidden border border-white/20 origin-bottom ${isFolderOpen ? "cursor-grab active:cursor-grabbing pointer-events-auto" : "pointer-events-none"}`}
+                  className={`absolute bottom-0 w-56 h-72 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.5)] overflow-hidden border border-white/20 origin-bottom ${isFolderOpen ? "cursor-grab active:cursor-grabbing pointer-events-auto" : "pointer-events-none"}`}
                   animate={!isFolderOpen ? {
                     y: stackY,
                     x: stackX,
@@ -85,25 +81,13 @@ export function InteractiveFolderGallery({
                     x: openX,
                     rotate: openRotate,
                     scale: openScale,
-                    zIndex: openZ,
+                    zIndex: 50,
                   }}
-                  whileHover={isFolderOpen ? { scale: openScale + 0.06, y: -12, x: openX + (offset > 0 ? 16 : offset < 0 ? -16 : 0), zIndex: 100 } : {}}
-                  whileDrag={isFolderOpen ? { scale: openScale + 0.1, rotate: 4, zIndex: 150 } : {}}
+                  whileHover={isFolderOpen ? { scale: openScale + 0.05, zIndex: 100 } : {}}
+                  whileDrag={isFolderOpen ? { scale: openScale + 0.1, rotate: 5, zIndex: 150 } : {}}
                   transition={{ type: "spring", stiffness: 350, damping: 30 }}
                 >
-                  <img src={photo.image} alt={photo.title || "Gallery item"} className="w-full h-full object-cover object-top pointer-events-none" />
-                  <div className="absolute inset-x-0 top-0 flex items-center gap-1 px-2 h-4 bg-gradient-to-b from-black/70 to-transparent pointer-events-none">
-                    <span className="h-1.5 w-1.5 rounded-full bg-white/40" />
-                    <span className="h-1.5 w-1.5 rounded-full bg-white/40" />
-                    <span className="h-1.5 w-1.5 rounded-full bg-white/40" />
-                  </div>
-                  <div
-                    className={`absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-2 py-1.5 transition-opacity duration-300 pointer-events-none ${isFolderOpen ? "opacity-100" : "opacity-0"}`}
-                  >
-                    <span className="block text-center text-[11px] font-medium tracking-wide text-white/90">
-                      {photo.title}
-                    </span>
-                  </div>
+                  <img src={photo.image} alt="Gallery item" className="w-full h-full object-cover pointer-events-none" />
                 </motion.div>
               );
             })}
@@ -136,7 +120,7 @@ export function InteractiveFolderGallery({
 
         <motion.div
           animate={{ opacity: isFolderOpen ? 1 : 0, y: isFolderOpen ? 0 : 50 }}
-          className="absolute bottom-8 z-30 px-6 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-white/50 text-sm font-medium uppercase tracking-widest pointer-events-none"
+          className="absolute bottom-10 px-6 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-white/50 text-sm font-medium uppercase tracking-widest pointer-events-none"
         >
           {dragHintText}
         </motion.div>
