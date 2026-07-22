@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Geomini&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -31,8 +32,8 @@
   --radius-xl: 16px;
 
   /* fonts */
-  --font-heading: var(--font-inter);
-  --font-body: var(--font-inter);
+  --font-heading: "Geomini", sans-serif;
+  --font-body: "Geomini", sans-serif;
   --font-mono: var(--font-jbm);
 
   --animate-accordion-down: accordion-down 0.2s ease-out;
