@@ -24,7 +24,7 @@ export const sections: SectionConfig[] = [
         {
           id: 1,
           title: "Meshwork Studio",
-          description: "A system design tool.",
+          description: "A system design tool deployed in AWS EC2 and RDS with proper sharding DBs, token bucket algorithms for rate limits, in-memory Redis websockets, and more.",
           image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop",
           href: "#",
         },
