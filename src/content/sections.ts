@@ -38,7 +38,7 @@ export const sections: SectionConfig[] = [
         {
           id: 3,
           title: "Kern",
-          description: "Client and digital marketing agency management platform.",
+          description: "A full digital marketing suite for managing an agency, built with Svelte and Node.js.",
           image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
           href: "#",
         },
